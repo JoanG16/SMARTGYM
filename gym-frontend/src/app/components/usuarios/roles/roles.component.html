@@ -1,0 +1,81 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+<div class="container-fluid p-4">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/" class="text-white">Inicio</a></li>
+            <li class="breadcrumb-item"><a href="/usuarios" class="text-white">Usuarios</a></li>
+        </ol>
+    </nav>
+    <div class="container p-2">
+        <div class="row">
+            <!-- Columna para el formulario -->
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header">
+                        Crear Rol
+                    </div>
+                    <div class="card-body">
+                        <form [formGroup]="formRoles" (ngSubmit)="submitRol()">
+                            <div class="form-group">
+                                <label for="name">Nombre del Rol</label>
+                                <div class="input-group">
+                                    <input type="text" class="form-control" name="name" id="name"
+                                    formControlName="name" placeholder="Ingrese el nombre del rol">
+                                </div>
+                            </div> 
+                            
+                          
+                            <div class="text-center"> <!-- Div para centrar horizontalmente los botones -->
+                                <button type="submit" class="btn btn-primary mr-2">Guardar</button>
+                                <button type="button" class="btn btn-secondary" routerLink="/usuarios">Cancelar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!-- Columna para la tabla de roles -->
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header">
+                        Roles Disponibles
+                    </div>
+                    <div class="card-body">
+                        <!-- Aquí va la tabla de roles -->
+                        <table class="table">
+                            <thead class="table-secondary">
+                                <tr>
+                                    <th scope="col">Rol</th>
+                                    
+                                    <th scope="col">Opciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let rol of roles">
+                                    <td>{{rol.name}}</td>
+                                    
+                                    <td>
+                                        <!-- BOTON ELIMINAR  -->
+                                        <button type="button" class="btn btn-circle btn-danger" (click)="deleteRol(rol.name)">
+                                            <i class="bi bi-trash"></i>
+                                        </button>
+                                        <!-- BOTON EDITAR 
+                                        <button type="button" class="btn btn-circle btn-primary">
+                                            <i class="bi bi-pen-fill"></i>
+                                        </button>-->
+                                        <!-- BOTON DESACTIVAR 
+                                        <button type="button" class="btn btn-circle btn-warning">
+                                            <i class="bi bi-x-circle"></i>
+                                        </button> -->
+                                    </td>
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

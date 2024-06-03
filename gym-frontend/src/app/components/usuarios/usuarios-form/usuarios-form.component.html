@@ -1,0 +1,42 @@
+<div class="container-fluid p-4">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/" class="text-white">Inicio</a></li>
+        <li class="breadcrumb-item"><a href="/usuarios" class="text-white">Usuarios</a></li>
+      </ol>
+    </nav>
+    <div class="container p-2">
+      <div class="row">
+          <div class="col-md-4 mx-auto">
+              <div class="card">
+                  <div class="card-header">
+                      Registrar Usuario
+                  </div>
+                  <div class="card-body">
+                      <form [formGroup]="formUsuarios" (ngSubmit)="submitUsuario()">
+                          <div class="form-group">
+                            <label for="user">Nombre de usuario</label>
+                            <div class="input-group">
+                              
+                              <input type="text" class="form-control" name="name" id="name" formControlName="name" placeholder="Nombre de usuario">
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label for="password">Contraseña</label>
+                            <div class="input-group">
+                            
+                              <input type="password" class="form-control" name="password" id="password" formControlName="password" placeholder="Contraseña">
+                            </div>
+                          </div>
+                          <div class="text-center"> <!-- Div para centrar horizontalmente los botones -->
+                            <button type="submit" class="btn btn-primary mr-2">Guardar</button>
+                            <button type="button" class="btn btn-secondary" routerLink="/usuarios">Cancelar</button>
+                          </div>
+                        </form>
+  
+                  </div>
+              </div>
+          </div>
+      </div>
+    </div>
+  </div>

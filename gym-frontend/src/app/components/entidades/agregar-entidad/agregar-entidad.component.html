@@ -1,0 +1,91 @@
+<div class="container-fluid p-4">
+
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="/" class="text-white">Inicio</a></li>
+      <li class="breadcrumb-item"><a href="/entidades" class="text-white">Entidades</a></li>
+    </ol>
+  </nav>
+
+
+  <div class="container p-2">
+    <blockquote class="blockquote">
+      <p class="h3 text-white">Agregar entidad</p>
+    </blockquote>
+
+    <div class="bg-secondary rounded p-4">
+
+      <div class="col-md-12">
+
+
+
+          <form (ngSubmit)="guardarEntidad()">
+            <!-- Nombre de la entidad -->
+            <div class="mb-3">
+              <label for="nombreEntidad" class="form-label">Nombre de la entidad</label>
+              <input type="text" class="form-control bg-dark text-white" id="nombreEntidad" [(ngModel)]="nombreEntidad" name="nombreEntidad">
+            </div>
+
+            <!-- Atributos -->
+            <div class="mb-3" *ngFor="let atributo of atributos; let i = index">
+              <div class="row align-items-center">
+                <!-- Nombre del atributo -->
+                <div class="col">
+                  <label for="nombreAtributo{{i}}" class="form-label">Nombre del atributo</label>
+                  <input type="text" class="form-control bg-dark text-white" id="nombreAtributo{{i}}" [(ngModel)]="atributo.nombre"
+                    name="nombreAtributo{{i}}">
+                </div>
+                <!-- Tipo de atributo -->
+                <div class="col">
+                  <label for="tipoAtributo{{i}}" class="form-label">Tipo de atributo</label>
+                  <select class="form-control bg-dark text-white" id="tipoAtributo{{i}}" [(ngModel)]="atributo.tipo" name="tipoAtributo{{i}}">
+                    <option value="VARCHAR(255)">Texto</option>
+                    <option value="INT">Número</option>
+                    <option value="BOOLEAN">Booleano</option>
+                    <option value="DATE">Fecha</option>
+                    <option value="DATETIME">Fecha y Hora</option>
+                    <!-- Agrega más tipos de atributos según tus necesidades -->
+                  </select>
+                </div>
+                <!-- Es clave primaria -->
+                <div class="col">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="esPrimaryKey{{i}}"
+                      [(ngModel)]="atributo.primaryKey" name="esPrimaryKey{{i}}">
+                    <label class="form-check-label" for="esPrimaryKey{{i}}">
+                      Clave Primaria
+                    </label>
+                  </div>
+                </div>
+                <!-- Botón para eliminar atributo -->
+                <div class="col-auto">
+                  <button type="button" class="btn btn-danger" (click)="eliminarAtributo(i)">Eliminar</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Botón para agregar nuevo atributo -->
+            <div class="mb-3">
+              <button type="button" class="btn btn-primary" (click)="agregarAtributo()">+ Agregar nuevo atributo</button>
+            </div>
+
+            <!-- Botón para guardar entidad -->
+            
+
+
+            <div class="d-flex justify-content-center mt-4">
+              <button type="button" class="btn btn-dark btn-lg mx-3" routerLink="/entidades">Regresar</button>
+              <button type="submit" class="btn btn-success btn-lg">Guardar entidad</button>
+            </div>
+          </form>
+
+      </div>
+
+    </div>
+
+
+
+
+
+  </div>
+</div>

@@ -1,0 +1,7 @@
+.btn-circle {
+    border-radius: 50%;
+    width: 36px; /* Tamaño deseado del botón */
+    height: 36px; /* Tamaño deseado del botón */
+    padding: 0; /* Elimina el espacio interno del botón */
+    margin-right: 5px; /* Separación entre botones */
+  }

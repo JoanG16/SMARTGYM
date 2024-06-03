@@ -1,0 +1,30 @@
+.placeholder-text {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-top: 0.375rem;
+    padding-bottom: 0.375rem;
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+    pointer-events: none;
+    color: rgba(255, 255, 255, 0.5); /* Color opaco */
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+/* Estilos para el contenedor del estado */
+.estado-container {
+    border-radius: 10px; /* Bordes redondeados */
+    padding: 5px 10px; /* Espaciado interno */
+    text-align: center; /* Texto centrado */
+    margin-bottom: 10px; /* Espacio inferior */
+}
+
+/* Estilos para el texto del estado */
+.estado {
+    color: white; /* Color del texto */
+    font-weight: bold; /* Texto en negrita */
+}

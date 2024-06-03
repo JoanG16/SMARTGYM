@@ -1,0 +1,55 @@
+<div class="container-fluid p-4">
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="/" class="text-white">Inicio</a></li>
+      <li class="breadcrumb-item"><a href="/membresias" class="text-white">Membresias</a></li>
+    </ol>
+  </nav>
+  <div class="container p-2">
+    <div class="row">
+        <div class="col-md-4 mx-auto">
+            <div class="card">
+                <div class="card-header">
+                    Agregar Membresía
+                </div>
+                <div class="card-body">
+                    <form>
+                        <div class="form-group">
+                          <label for="nombreMembresia">Nombre de la membresía</label>
+                          <div class="input-group">
+                            <div class="input-group-prepend">
+                              <span class="input-group-text"><i class="bi bi-card-heading"></i></span>
+                            </div>
+                            <input type="text" class="form-control" id="nombreMembresia" placeholder="Nombre de la membresía">
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label for="duracionMembresia">Duración</label>
+                          <div class="input-group">
+                            <div class="input-group-prepend">
+                              <span class="input-group-text"><i class="bi bi-clock"></i></span>
+                            </div>
+                            <input type="number" class="form-control" id="duracionMembresia" placeholder="Duración (meses)">
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label for="precioMembresia">Precio</label>
+                          <div class="input-group">
+                            <div class="input-group-prepend">
+                              <span class="input-group-text"><i class="bi bi-currency-dollar"></i></span>
+                            </div>
+                            <input type="number" class="form-control" id="precioMembresia" placeholder="Precio" step="0.01">
+                          </div>
+                        </div>
+                        <div class="text-center"> <!-- Div para centrar horizontalmente los botones -->
+                          <button type="submit" class="btn btn-primary mr-2" routerLink="/membresias">Guardar</button>
+                          <button type="button" class="btn btn-secondary" routerLink="/membresias">Cancelar</button>
+                        </div>
+                      </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+</div>

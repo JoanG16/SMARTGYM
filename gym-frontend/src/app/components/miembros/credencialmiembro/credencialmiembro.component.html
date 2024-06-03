@@ -1,0 +1,85 @@
+<div class="container-fluid p-4">
+
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/" class="text-white">Inicio</a></li>
+            <li class="breadcrumb-item"><a href="/miembros" class="text-white">Miembros</a></li>
+        </ol>
+    </nav>
+
+
+    <div class="container p-2 ">
+        <div class="row justify-content-center">
+
+
+            <!-- CRENDENCIAL INICIO -->
+            <div id="credencial">
+                <div class="credencial">
+                    <div class="nav">
+                        <div class="logo-container"> 
+                            <img width="50" src="https://cdn.icon-icons.com/icons2/281/PNG/256/gym-icon_30328.png" alt="">
+                        </div>
+                        <div class="name-container"> <!-- Nuevo contenedor para el nombre del gimnasio -->
+                            <b class="logogym"> Smart Gym</b>
+                            <p style="font-size: 10px;" class="telefonogym">Tel: 0968176536</p>
+                        </div>
+                    </div>
+                    <p class="nombre">{{ miembro.nombre }}</p>
+                    <p class="matricula">{{miembro.matricula}}</p>
+                    <img class="imagen" src="{{miembro.imagen || 'https://definicion.de/wp-content/uploads/2019/07/perfil-de-usuario.png'}}" alt="">
+                    <p class="info-field">Teléfono: <b>{{miembro.telefono}}</b></p>
+                    <p class="info-field">Dirección: <b>{{miembro.direccion}}</b></p>
+                    <p class="info-field">Miembro desde <b>24-04-2024</b></p>
+                </div>
+                <div class="credencial">
+                    <div class="logo-container2"> <!-- Contenedor para el logo -->
+                        <img src="https://cdn.icon-icons.com/icons2/3357/PNG/512/emergency_medicine_clinic_pharmacy_heh_cross_sign_hospital_icon_210687.png"
+                            width="200" alt="LOGOOOO"> <!-- Imagen del logo -->
+                    </div>
+                    <div class="info-container">
+                        <div class="info-field"> <!-- Contenedor para el campo de información -->
+                            <b>En caso de accidente, comunicarse con:</b>
+                        </div>
+                        <div class="info-field"> <!-- Contenedor para el campo de información -->
+                            <p>Nombre: <b>{{miembro.nombreContacto}}</b></p>
+                        </div>
+                        <div class="info-field"> <!-- Contenedor para el campo de información -->
+                            <p>Teléfono: <b>{{miembro.telefonoContacto}}</b></p>
+                        </div>
+                        <div class="info-field"> <!-- Contenedor para el campo de información -->
+                            <p>Enfermedad(es): <b>{{miembro.enfermedad}}</b></p>
+                        </div>
+                        <div class="info-field"> <!-- Contenedor para el campo de información -->
+                            <p>Tiene seguro en <b>{{miembro.institucion}}</b></p>
+                        </div>
+                        <div class="info-field"> <!-- Contenedor para el campo de información -->
+                            <br>
+                        </div>
+
+                        <div class="nav">
+                            <div class="name-container"> <!-- Nuevo contenedor para el nombre del gimnasio -->
+                                <b class="logogym"> Smart Gym</b>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <!-- CRENDENCIAL FIN -->
+
+        </div>
+
+        <div class="d-flex justify-content-center align-items-center p-2">
+
+            <button type="button" class="btn btn-primary btn-lg mx-1" (click)="convertirPDF()">
+                <i class="bi bi-printer" aria-hidden="true"></i>&nbsp;&nbsp;Imprimir
+            </button> 
+            <button type="button" class="btn btn-secondary btn-lg" routerLink="/miembros">
+                <i class="bi bi-arrow-return-left" aria-hidden="true"></i>&nbsp;&nbsp;Regresar
+            </button>             
+
+        </div>
+
+
+    </div>
+</div>
