@@ -1,0 +1,143 @@
+<div class="container-fluid p-4">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/" class="text-white">Inicio</a></li>
+        <li class="breadcrumb-item"><a href="/compras" class="text-white">Compras</a></li>
+      </ol>
+    </nav>
+  
+    <div class="container p-2">
+      <blockquote class="blockquote">
+        <p class="h3 text-white">Comprar</p>
+      </blockquote>
+  
+      <div class="bg-secondary rounded p-4">
+        <div class="col-md-12">
+          <!-- FORMULARIO INICIO -->
+          <form (ngSubmit)="realizarCompra()" novalidate>
+            <div class="container">
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="descripcion">Descripción:</label>
+                    <input
+                      type="text"
+                      class="form-control bg-dark text-white"
+                      id="descripcion"
+                      [(ngModel)]="descripcion"
+                      name="descripcion"
+                      required
+                    />
+                  </div>
+                </div>
+              </div>
+  
+              <div class="row">
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label for="producto">Producto:</label>
+                    <select
+                      class="form-control bg-dark text-white"
+                      id="producto"
+                      [(ngModel)]="selectedProducto"
+                      (change)="onProductoChange()"
+                      name="producto"
+                    >
+                      <option *ngFor="let producto of productos" [ngValue]="producto">
+                        {{ producto.nombre }}
+                      </option>
+                    </select>
+                  </div>
+                </div>
+  
+                <div class="col-md-2">
+                  <div class="form-group">
+                    <label for="costo_unitario">Costo Unitario:</label>
+                    <input
+                      type="text"
+                      class="form-control bg-dark text-white"
+                      id="costo_unitario"
+                      [value]="selectedProducto?.costo | number:'1.2-2'"
+                      readonly
+                    />
+                  </div>
+                </div>
+  
+                <div class="col-md-2">
+                  <div class="form-group">
+                    <label for="cantidad">Cantidad:</label>
+                    <input
+                      type="number"
+                      class="form-control bg-dark text-white"
+                      id="cantidad"
+                      [(ngModel)]="cantidad"
+                      name="cantidad"
+                      min="1"
+                    />
+                  </div>
+                </div>
+  
+                <div class="col-md-2">
+                  <div class="form-group">
+                    <button
+                      type="button"
+                      class="btn btn-primary mt-4"
+                      (click)="agregarProducto()"
+                    >
+                      Agregar
+                    </button>
+                  </div>
+                </div>
+              </div>
+  
+              <div class="row mt-4">
+                <div class="col-md-12">
+                  <h4 class="text-white">Detalles de la compra</h4>
+                  <div class="table-responsive">
+                    <table class="table table-dark table-striped">
+                      <thead>
+                        <tr>
+                          <th>Producto</th>
+                          <th>Cantidad</th>
+                          <th>Costo Unitario</th>
+                          <th>Subtotal</th>
+                          <th>Acciones</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr *ngFor="let detalle of detalles; let i = index">
+                          <td>{{ detalle.nombre }}</td>
+                          <td>{{ detalle.cantidad }}</td>
+                          <td>{{ detalle.costo_unitario | number:'1.2-2' }}</td>
+                          <td>{{ detalle.subtotal | number:'1.2-2' }}</td>
+                          <td>
+                            <button
+                              type="button"
+                              class="btn btn-danger"
+                              (click)="quitarProducto(i)"
+                            >
+                              Quitar
+                            </button>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <div class="text-right">
+                    <h4 class="text-white">TOTAL: {{ total | number:'1.2-2' }}$</h4>
+                  </div>
+                </div>
+              </div>
+  
+              <div class="d-flex justify-content-center mt-4">
+                <button type="button" class="btn btn-primary btn-lg mx-3" routerLink="/compras">Regresar</button>
+                <button type="submit" class="btn btn-success btn-lg mx-3">Hacer Compra</button>
+              </div>
+            </div>
+          </form>
+          <!-- FORMULARIO FIN -->
+        </div>
+      </div>
+    </div>
+  </div>
+  

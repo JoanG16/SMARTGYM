@@ -11,6 +11,9 @@ import usuariosRoutes from './routes/usuarios.routes.js'
  import entidadesRoutes from './routes/entidades.routes.js'
 
 import configuracionRoutes from './routes/configuracion.routes.js'
+import compraRoutes from './routes/compra.routes.js'
+
+
 
 
 const app = express();
@@ -32,6 +35,7 @@ app.use(indexRoutes);
 app.use('/api', usuariosRoutes);
 app.use('/api', entidadesRoutes);
 app.use('/api', configuracionRoutes);
+app.use('/api', compraRoutes);
 
 
 app.listen(3000);

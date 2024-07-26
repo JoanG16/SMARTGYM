@@ -1,0 +1,72 @@
+<div class="container-fluid p-4">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/" class="text-white">Inicio</a></li>
+            <li class="breadcrumb-item"><a href="/productos" class="text-white">Productos</a></li>
+            <li class="breadcrumb-item active text-white" aria-current="page">{{ modoEdicion ? 'Editar Producto' : 'Crear Producto' }}</li>
+        </ol>
+    </nav>
+  
+    <div class="container p-2">
+        <blockquote class="blockquote">
+            <p class="h3 text-white">{{ modoEdicion ? 'Editar Producto' : 'Crear Producto' }}</p>
+        </blockquote>
+  
+        <div class="bg-secondary rounded p-4">
+            <div class="col-md-12">
+                <!-- FORMULARIO INICIO -->
+                <form (ngSubmit)="guardarProducto()" #productoForm="ngForm">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="nombre" class="text-white">Nombre:</label>
+                                    <input type="text" class="form-control bg-dark text-white" id="nombre" name="nombre" [(ngModel)]="producto.nombre" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="descripcion" class="text-white">Descripción:</label>
+                                    <textarea class="form-control bg-dark text-white" id="descripcion" name="descripcion" [(ngModel)]="producto.descripcion"></textarea>
+                                </div>
+                            </div>
+                        </div>
+  
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="precio" class="text-white">Precio:</label>
+                                    <input type="number" class="form-control bg-dark text-white" id="precio" name="precio" [(ngModel)]="producto.precio" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="costo" class="text-white">Costo:</label>
+                                    <input type="number" class="form-control bg-dark text-white" id="costo" name="costo" [(ngModel)]="producto.costo" required>
+                                </div>
+                            </div>
+                        </div>
+  
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="categoria" class="text-white">Categoría:</label>
+                                    <select class="form-control bg-dark text-white" id="categoria" name="categoria" [(ngModel)]="producto.idcategoria" required>
+                                        <option *ngFor="let categoria of categorias" [value]="categoria.idcategoria">{{ categoria.nombre }}</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+  
+                        <div class="d-flex justify-content-center mt-4">
+                            <button type="button" class="btn btn-primary btn-lg mx-3" routerLink="/productos">Regresar</button>
+                            <button type="submit" class="btn btn-success btn-lg mx-3">{{ modoEdicion ? 'Actualizar' : 'Guardar' }}</button>
+                        </div>
+                    </div>
+                </form>
+                <!-- FORMULARIO FIN -->
+            </div>
+        </div>
+    </div>
+  </div>
+  

@@ -1,0 +1,14 @@
+/* app.component.css (o tu archivo de estilos global) */
+
+.caja-label {
+    font-size: 1.2em; /* Tamaño de fuente más grande */
+    font-weight: bold; /* Texto en negrita */
+    margin-right: 10px; /* Espacio a la derecha para separación */
+  }
+  
+  .caja-total {
+    font-size: 1.2em; /* Tamaño de fuente más grande */
+    font-weight: bold; /* Texto en negrita */
+    color: #ffc107; /* Color amarillo (puedes ajustar el color según tu preferencia) */
+  }
+  

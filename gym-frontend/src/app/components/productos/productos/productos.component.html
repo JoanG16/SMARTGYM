@@ -1,0 +1,48 @@
+<!-- productos.component.html -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+<div class="container-fluid p-4">
+    <blockquote class="blockquote">
+      <p class="h3">Productos</p>
+    </blockquote>
+    <table class="table">
+      <thead class="table-secondary">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Nombre</th>
+          <th scope="col">Descripción</th>
+          <th scope="col">Precio</th>
+          <th scope="col">Costo</th>
+          <th scope="col">Categoría</th>
+          <th scope="col">Cantidad en Stock</th>
+          <th scope="col">Opciones</th> <!-- Agregamos una columna para botones de acción -->
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let producto of productosConStockYCategorias">
+          <td>{{ producto.idproducto }}</td>
+          <td>{{ producto.nombre_producto }}</td>
+          <td>{{ producto.descripcion_producto }}</td>
+          <td>{{ producto.precio | currency }}</td>
+          <td>{{ producto.costo | currency }}</td>
+          <td>{{ producto.nombre_categoria }}</td>
+          <td>{{ producto.cantidad_en_stock }}</td>
+          <td>
+            <button type="button" class="btn btn-circle btn-primary">
+              <i class="bi bi-pencil"></i> <!-- Icono de lápiz para editar -->
+          </button>
+          <button type="button" class="btn btn-circle btn-danger" (click)="eliminarProducto(producto.idproducto)">
+            <i class="bi bi-trash"></i> <!-- Icono de basura para eliminar -->
+          </button>
+            <!-- Puedes añadir más botones de acción aquí según tus necesidades -->
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <a href="/productos-form"
+        class="btn btn-primary btn-floating rounded-circle d-flex justify-content-center align-items-center"
+        style="position: fixed; bottom: 20px; right: 20px; font-size: 24px; width: 60px; height: 60px;">
+        <i class="bi bi-plus"></i>
+    </a>
+  </div>
+  

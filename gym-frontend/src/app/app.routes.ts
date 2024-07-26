@@ -26,6 +26,14 @@ import { EntidadesComponent } from './components/entidades/entidades/entidades.c
 import { AgregarEntidadComponent } from './components/entidades/agregar-entidad/agregar-entidad.component';
 
 
+import { ComprasComponent } from './components/compras/compras/compras.component';
+import { ComprasFormComponent } from './components/compras/compras-form/compras-form.component';
+
+import { ProductosComponent } from './components/productos/productos/productos.component';
+import { ProductosFormComponent } from './components/productos/productos-form/productos-form.component';
+
+
+
 
 export const routes: Routes = [
     {
@@ -101,5 +109,21 @@ export const routes: Routes = [
     {
         path:'configuracion',
         component: ConfiguracionComponent,
+    },
+    {
+        path:'compras',
+        component: ComprasComponent,
+    },
+    {
+        path:'compras-form',
+        component: ComprasFormComponent,
+    },
+    {
+        path:'productos',
+        component: ProductosComponent,
+    },
+    {
+        path:'productos-form',
+        component: ProductosFormComponent,
     }
 ];
